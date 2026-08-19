@@ -1,8 +1,8 @@
 # Food-Catering_CSS_Task
 
-# Food Collage Web Design
+# Food Web Design
 
-## Project Overview
+## Task Overview
 
 A responsive food collage webpage created using **HTML5 and CSS3**, inspired by the provided reference design.
 
