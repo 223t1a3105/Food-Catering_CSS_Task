@@ -1,0 +1,250 @@
+/* ================================
+   FOOD COLLAGE PROJECT
+   Demonstrates:
+   - CSS selectors
+   - transform
+   - transition
+   - pseudo-elements
+   - responsive design
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2e3ca;
+    overflow: hidden;
+}
+
+/* Main page */
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main collage area */
+.collage {
+    position: relative;
+    width: min(100vw, 820px);
+    aspect-ratio: 821 / 776;
+    overflow: hidden;
+}
+
+/* -------------------------------
+   Diamond photo cards
+-------------------------------- */
+
+.photo {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+
+    /* Creates the diamond */
+    transform: rotate(45deg);
+
+    /* Golden border like the reference */
+    border: 6px solid #d7a75d;
+
+    background: #f2e3ca;
+
+    /* Required transition */
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+/* Image is rotated back so the photo stays straight */
+.photo img {
+    width: 142%;
+    height: 142%;
+    object-fit: cover;
+    position: absolute;
+    left: -21%;
+    top: -21%;
+
+    transform: rotate(-45deg) scale(1.01);
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+/* Hover selector + transform */
+.photo:hover {
+    transform: rotate(45deg) scale(1.06);
+    box-shadow: 0 14px 30px rgba(90, 60, 25, 0.25);
+    z-index: 20;
+}
+
+.photo:hover img {
+    transform: rotate(-45deg) scale(1.08);
+    filter: saturate(1.08);
+}
+
+/* -------------------------------
+   Exact positions
+-------------------------------- */
+
+.photo-1 {
+    left: 12%;
+    top: 12%;
+}
+
+.photo-2 {
+    right: 8%;
+    top: 12%;
+}
+
+.photo-3 {
+    left: 31%;
+    top: 28%;
+    width: 275px;
+    height: 275px;
+    z-index: 5;
+}
+
+.photo-4 {
+    left: 12%;
+    bottom: 9%;
+}
+
+.photo-5 {
+    right: 8%;
+    bottom: 9%;
+}
+
+/* -------------------------------
+   Decorative icons
+-------------------------------- */
+
+.decor {
+    position: absolute;
+    color: rgba(218, 187, 128, 0.23);
+    user-select: none;
+    pointer-events: none;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+/* Top chef-style symbol */
+.decor-chef {
+    top: 10%;
+    left: 49%;
+    font-size: 48px;
+    opacity: 0.35;
+}
+
+/* Left pizza */
+.decor-pizza {
+    left: 8%;
+    top: 44%;
+    font-size: 76px;
+    filter: grayscale(1);
+    opacity: 0.23;
+    transform: rotate(-15deg);
+}
+
+/* Right food icon */
+.decor-burger {
+    right: 6%;
+    top: 44%;
+    font-size: 72px;
+    filter: grayscale(1);
+    opacity: 0.20;
+    transform: rotate(12deg);
+}
+
+/* Bottom-left cutlery */
+.decor-cutlery {
+    left: 48%;
+    bottom: 10%;
+    font-size: 60px;
+    opacity: 0.25;
+    transform: rotate(15deg);
+}
+
+/* Bottom decorative slice */
+.decor-slice {
+    right: 43%;
+    bottom: 3%;
+    font-size: 70px;
+    opacity: 0.18;
+    transform: rotate(30deg);
+}
+
+/* Decorative hover selector */
+.collage:hover .decor {
+    opacity: 0.30;
+}
+
+/* -------------------------------
+   Responsive design
+-------------------------------- */
+
+@media (max-width: 700px) {
+
+    .photo {
+        width: 30vw;
+        height: 30vw;
+        border-width: 4px;
+    }
+
+    .photo-3 {
+        width: 34vw;
+        height: 34vw;
+    }
+
+    .decor {
+        font-size: 7vw;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .photo {
+        width: 31vw;
+        height: 31vw;
+        border-width: 3px;
+    }
+
+    .photo-1 {
+        left: 7%;
+        top: 18%;
+    }
+
+    .photo-2 {
+        right: 5%;
+        top: 18%;
+    }
+
+    .photo-3 {
+        left: 32%;
+        top: 34%;
+        width: 36vw;
+        height: 36vw;
+    }
+
+    .photo-4 {
+        left: 7%;
+        bottom: 13%;
+    }
+
+    .photo-5 {
+        right: 5%;
+        bottom: 13%;
+    }
+}
